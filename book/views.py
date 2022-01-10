@@ -8,7 +8,7 @@ def hello_world(request):
 
 
 def book_all(request):
-    post = models.Post.objects.all()
-    return render(request, 'post_list.html', {'post': post})
+    book = models.Book.objects.all()
+    return render(request, 'book_list.html', {'book': book})
 
 
