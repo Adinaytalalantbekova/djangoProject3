@@ -6,10 +6,13 @@
 </head>
 <body>
 <div>
-    <h2><a href="/book/{{ book.id }}/">{{ book.author }}</a> </h2>
+    <div class="container button__container">
+        <a href="/book/"> class="btn-primary">Book</a>
+
+    </div>
+    <h2><a href="/book/{{ book.id }}/">{{ book.author }}</a></h2>
     <p>{{ show.description }}</p>
     <img src="{{ show.image.url }}" alt="">
 </div>
-
 </body>
 </html>
