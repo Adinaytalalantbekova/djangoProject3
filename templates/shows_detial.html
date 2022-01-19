@@ -9,12 +9,27 @@
     <div class="container button__container">
     <a href="/shows/">class="btn btn-primary">Shows</a>
 </div>
-    <h2><a href="/shows/{{ show.id }}/">{{ show.title }}</a></h2>
-    <p>{{ show.description }}</p>
-    <img src="{{ show.image.url }}" alt="">
-    <p>{{ show.quatity }}</p>
-    <p>{{ show.genre }}  </p>
-    <p>{{ show.date.filmed }}</p>
+    <h2><a href="/shows/{{ object.id }}/">{{ object.title }}</a></h2>
+    <p>{{ object.description }}</p>
+    <img src="{{ object.image.url }}" alt="">
+    <p>{{ object.quatity }}</p>
+    <p>{{ object.genre }}  </p>
+    <p>{{ object.date.filmed }}</p>
 </div>
+<div>
+    <h2>Comments: </h2>
+    <ul>
+        {% for i in object.show_comment.all %}
+            <li>
+            <p>{{ i.text }}</p>
+            <p> {{ i.created_date }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+    <div class="card-body body__button">
+        <button type="button" class="btn-primary"><a href="/shows/{{ object.id }}/update/">Chage</a></button>
+        <button type="button" class="btn btn-primary"><a href="/shows/">Delete</a></button>
+    </div>
 </body>
 </html>
