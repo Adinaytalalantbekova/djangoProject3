@@ -13,6 +13,9 @@
     <h2><a href="/book/{{ book.id }}/">{{ book.author }}</a></h2>
     <p>{{ show.description }}</p>
     <img src="{{ show.image.url }}" alt="">
+    <div class="card-body body__button">
+        <button type="button" class="btn btn-primary"><a href="/books/{{ book.id }}/delete/">Delete </a></button>
+    </div>
 </div>
 </body>
 </html>

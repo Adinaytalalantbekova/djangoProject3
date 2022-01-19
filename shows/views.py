@@ -25,6 +25,21 @@ def add_show(request):
         form = forms.ShowForm()
     return render(request, 'add_shows.html', {'form': form})
 
+def show_update(request, id):
+    show_object = get_object_or_404(models.TVShow, id=id)
+    if request.method == 'POST':
+        form = forms.ShowForm(instance=show_object, data=request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponse('Show Updated Successfully')
+    else:
+        form = forms.ShowForm(instance=show_object)
+    return render(request, 'show_update.html', {'object': show_object})
+
+def show_delete(request,id):
+    show_object = get_object_or_404(models.TVShow, id=id)
+    show_object.delete()
+    return HttpResponse('Show Deleted')
 
 
 
