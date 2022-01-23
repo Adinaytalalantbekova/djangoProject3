@@ -16,6 +16,7 @@
     <p>{{ object.genre }}  </p>
     <p>{{ object.date.filmed }}</p>
 </div>
+
 <div>
     <h2>Comments: </h2>
     <ul>
@@ -29,6 +30,10 @@
 </div>
     <div class="card-body body__button">
         <button type="button" class="btn-primary"><a href="/shows/{{ object.id }}/update/">Chage</a></button>
+
+    <div class="card-body body__button">
+        <button type="button" class="btn-primary"><a href="/shows/{{ show.id }}/update/">Chage</a></button>
+
         <button type="button" class="btn btn-primary"><a href="/shows/">Delete</a></button>
     </div>
 </body>

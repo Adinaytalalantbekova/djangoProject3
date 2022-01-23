@@ -92,3 +92,22 @@ class BookDeleteView(generic.DetailView):
 #     show_object = get_object_or_404(models.Book, id=id)
 #     show_object.delete()
 #     return HttpResponse('Show Deleted')
+
+def book_update(request, id, redirect=None):
+    book_object = get_object_or_404(models.Book, id=id)
+    if request.method == "POST":
+        form = forms.BookForm(instance=book_object, data=request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect(reverse("books: book_all"))
+    else:
+        form = forms.BookForm(instance=book_object)
+    return render(request, 'book_update.html', {"form": form,'object': book_object})
+
+
+
+def show_delete(request,id):
+    show_object = get_object_or_404(models.Book, id=id)
+    show_object.delete()
+    return HttpResponse('Show Deleted')
+
