@@ -2,7 +2,7 @@ from . import parser, models
 from django import forms
 
 
-class ParserForm(forms):
+class ParserForm(forms.Form):
     MEDIA_CHOICES = (
         ('CARTOON', 'CARTOON'),
     )

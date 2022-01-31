@@ -12,7 +12,7 @@ HEADERS = {
 
 @csrf_exempt
 def get_html(url, params=''):
-    req =requests.get(url, headers=HEADERS, params=params)
+    req = requests.get(url, headers=HEADERS, params=params)
     return req
 
 @csrf_exempt
@@ -35,7 +35,7 @@ def parser():
     html = get_html(URL)
     if html.static_code == 200:
         cartoon = []
-        for page in range(0,1):
+        for page in range(0, 1):
             html = get_html(URL, params={'page': page})
             cartoon.extend(get_data(html.text))
             return cartoon
